@@ -18,46 +18,46 @@ class Question(models.Model):
 ```
 ## Activate models\
 Add application configures:\
-	```python
-	INSTALLED_APPS = [
-		'polls.apps.PollsConfig',
-	```
+```python
+INSTALLED_APPS = [
+	'polls.apps.PollsConfig',
+```
 ## Make the migration
-	```python
-	python manage.py makemigrations polls
-	```
+```python
+python manage.py makemigrations polls
+```
 ## Apply the migration
-	```python
-	python manage.py migrate
-	```
+```python
+python manage.py migrate
+```
 ## Create admin
-	```python
-	python manage.py createsuperuser
-	```
-Now, open a Web browser and go to “/admin/” on your local domain
+```python
+python manage.py createsuperuser
+```
+Now, open a Web browser and go to `“/admin/”` on your local domain
 ## Make the poll app modifiable in the admin
-To do this, open the `polls/admin.py` file, and edit it to look like this:
-	```python
-	from django.contrib import admin
-	from .models import Question
-	admin.site.register(Question)
-	```
+To do this, open the `polls/admin.py` file, and edit it to look like this:\
+```python
+from django.contrib import admin
+from .models import Question
+admin.site.register(Question)
+```
 ## Writting more views
 Now let’s add a few more views to `polls/views.py`:
-	```py
-	def detail(request, question_id):
-		return HttpResponse("You're looking at question %s." % question_id)
-	```
+```py
+def detail(request, question_id):
+	return HttpResponse("You're looking at question %s." % question_id)
+```
 ## Wire these new views into the polls.urls module
 by adding the following path() calls:
-	```py
-	from django.urls import path
-	from . import views
-	urlpatterns = [
-		# ex: /polls/
-		path('', views.index, name='index'),
-		# ex: /polls/5/
-		path('<int:question_id>/', views.detail, name='detail'),
-	]
-	```
+```py
+from django.urls import path
+from . import views
+urlpatterns = [
+	# ex: /polls/
+	path('', views.index, name='index'),
+	# ex: /polls/5/
+	path('<int:question_id>/', views.detail, name='detail'),
+]
+```
 ##
