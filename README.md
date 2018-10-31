@@ -6,12 +6,12 @@
 	git remote -v
 
 ## Migrate database
-By default, INSTALLED_APPS contains the following apps, all of which come with Django. These applications are included by default as a convenience for the common case. Some of these applications make use of at least one database table, though, so we need to create the tables in the database before we can use them. To do that, run the following command:
+By default, INSTALLED_APPS contains the following apps, all of which come with Django. These applications are included by default as a convenience for the common case. Some of these applications make use of at least one database table, though, so we need to create the tables in the database before we can use them. To do that, run the following command:\
 	python manage.py migrate
-* Create new models
+* Create new models\
 New models in `polls/models.py`
-* Activate models
-Add application configures
+* Activate models\
+Add application configures:\
 	INSTALLED_APPS = [
 		'polls.apps.PollsConfig',
 * Make the migration
