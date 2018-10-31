@@ -12,8 +12,10 @@ By default, INSTALLED_APPS contains the following apps, all of which come with D
 New models in `polls/models.py`
 * Activate models\
 Add application configures:\
+	```
 	INSTALLED_APPS = [
 		'polls.apps.PollsConfig',
+	```
 * Make the migration
 	python manage.py makemigrations polls
 * Apply the migration
