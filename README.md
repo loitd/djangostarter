@@ -17,23 +17,34 @@ Add application configures:\
 		'polls.apps.PollsConfig',
 	```
 * Make the migration
+	```
 	python manage.py makemigrations polls
+	```
 * Apply the migration
+	```
 	python manage.py migrate
+	```
 * Create admin
+	```
 	python manage.py createsuperuser
+	```
 Now, open a Web browser and go to “/admin/” on your local domain
 * Make the poll app modifiable in the admin
 To do this, open the `polls/admin.py` file, and edit it to look like this:
+	```
 	from django.contrib import admin
 	from .models import Question
 	admin.site.register(Question)
+	```
 * Writting more views
 Now let’s add a few more views to `polls/views.py`:
+	```
 	def detail(request, question_id):
 		return HttpResponse("You're looking at question %s." % question_id)
+	```
 * Wire these new views into the polls.urls module
 by adding the following path() calls:
+	```
 	from django.urls import path
 	from . import views
 	urlpatterns = [
@@ -42,3 +53,4 @@ by adding the following path() calls:
 		# ex: /polls/5/
 		path('<int:question_id>/', views.detail, name='detail'),
 	]
+	```
